@@ -43,7 +43,7 @@
     sim.secDiv.shift();
 
     const timeoutID = setTimeout(() => {
-      dispMsg();
+      dispMsg(order);
     }, 1000);
 
     // メッセージを表示し終わった場合、初期状態へもどす
@@ -82,14 +82,47 @@
       const target = event.target;
       if(target.matches('button')) {
         insertMsg(order, target);
+        // 合計金額の加算
         const targetPrice = Number(target.dataset.price);
+        const priceSumDom = document.getElementById('priceSum');
         sim.sum += targetPrice;
+        priceSumDom.innerHTML = sim.sum;
+
         dispConsole();
         dispMsg(order);
       }
     });
 
+    sim.buttons = {};
+
   };
+
+  // const resetSimulation = () => {
+
+  //   // 内部データのリセット
+  //   sim.buttons = {};
+  //   sim.sum = 0;
+
+  //   // 要素の初期化（テキスト）
+  //   const secs = document.getElementsByClassName('sec').length;
+  //   for(let i = 1; i <= secs; i++) {
+  //     const sec = document.getElementById(('sec' + i).toString());
+  //     sim.secDiv = Array.from(sec.children);
+
+  //     for(const para of sim.secDiv) {
+  //       para.style.display = 'none';
+  //     }
+  //   }
+
+  //   const buttonWps = Array.from(document.getElementsByClassName('button'));
+  //   for(let i = 0; i < buttonWps.length; i++) {
+  //     const children = buttonWps[i].children;
+  //     for(const child of children) {
+  //       child.disabled = false;
+  //     }
+  //   }
+
+  // };
 
   window.onload = () => {
     dispMsg(1);
@@ -98,5 +131,19 @@
       setButtonEvent(i + 2);
     }
   };
+
+  /**
+   * イベント設定
+   * リセットボタンの挙動
+   */
+  // const reRun = document.getElementById('reRun');
+  // reRun.addEventListener('click', () => {
+  //   resetSimulation();
+  //   dispMsg(1);
+  //   const qNum = document.getElementsByClassName('question').length;
+  //   for(let i = 0; i < qNum; i++) {
+  //     setButtonEvent(i + 2);
+  //   }
+  // });
 
 }());
