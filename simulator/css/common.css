@@ -50,3 +50,8 @@ border-spacing: 0;
 .d02 {
   display: none;
 }
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+}
