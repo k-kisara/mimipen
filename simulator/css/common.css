@@ -55,3 +55,97 @@ border-spacing: 0;
   position: fixed;
   bottom: 0;
 }
+
+/*以下、①背景色など*/
+.line_bc {
+  padding: 20px 5%;
+  font-size: 14px;
+}
+
+.balloon {
+  margin: 10px 0;
+}
+
+.balloon .face_icn {
+  display: inline-block;
+  position: absolute;
+  width: 40px;
+  vertical-align: top;
+}
+
+.balloon .face_icn img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.balloon .chatting {
+  display: block;
+  position: relative;
+  max-width: 500px;
+  margin-left: 50px;
+  background: #edf1ee;
+  padding: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+
+.balloon .chatting::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  -ms-transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.button {
+  font-size: 0;
+  text-align: center;
+}
+
+.button button {
+  display: inline-block;
+  width: 48%;
+  padding: 5px 5%;
+  background: #30e852;
+  border: none;
+  border-radius: 15px;
+}
+
+.button button + button {
+  margin-left: 2%;
+}
+
+.mycomment {
+  display: none;
+  margin: 10px 0;
+  text-align: right;
+}
+
+.mycomment p {
+  display: inline-block;
+  position: relative;
+  margin-right: 5%;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
+}
+
+.mycomment p:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -18px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  -ms-transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
